@@ -14,13 +14,18 @@ class Leagues extends Component {
     })
     .catch(console.log)
   }
+
+  selectTeam = (event) => {
+    console.log("clicked")
+   
+  }
   
  render(){
   return (
     <div class="list">
       <center><h1>Leagues List</h1></center>
       {this.state.leagues.map((league) => (
-        <div class="card">
+        <div class="card" key={league.id} onClick={this.selectTeam}>
           <div className="avatar">
                         <img src={league.image_url} alt={league.name}/>
                       </div>
