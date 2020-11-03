@@ -13,16 +13,20 @@ class Leagues extends Component {
     })
     .catch(console.log)
   }
+  
  render(){
   return (
-    <div>
+    <div class="list">
       <center><h1>Leagues List</h1></center>
-      {contacts.map((leagues) => (
+      {this.state.leagues.map((league) => (
         <div class="card">
+          <div className="avatar">
+                        <img src={league.image_url} alt={league.name}/>
+                      </div>
           <div class="card-body">
-            <h5 class="card-title">{contact.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{contact.email}</h6>
-            <p class="card-text">{contact.company.catchPhrase}</p>
+            <h5 class="card-title">{league.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{league.slug}</h6>
+            <p class="card-text">{league.modified_at}</p>
           </div>
         </div>
       ))}
