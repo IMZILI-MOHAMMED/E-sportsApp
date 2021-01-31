@@ -1,4 +1,6 @@
 import React, { Component }  from 'react';
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 class Leagues extends Component {
   state = {
@@ -15,17 +17,13 @@ class Leagues extends Component {
     .catch(console.log)
   }
 
-  selectTeam = (event) => {
-    console.log("clicked")
-   
-  }
   
  render(){
   return (
     <div class="list">
       <center><h1>Leagues List</h1></center>
       {this.state.leagues.map((league) => (
-        <div class="card" key={league.id} onClick={this.selectTeam}>
+        <div class="card" >
           <div className="avatar">
                         <img src={league.image_url} alt={league.name}/>
                       </div>
@@ -34,6 +32,9 @@ class Leagues extends Component {
             <h6 class="card-subtitle mb-2 text-muted">{league.slug}</h6>
             <p class="card-text">{league.modified_at}</p>
           </div>
+          <Link to={`/leagues/${league.id}`}>
+           <Button variant="primary">Details</Button>
+          </Link>
         </div>
       ))}
     </div>
